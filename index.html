@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset default list styles */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Add outer rectangle (mobile screen) */
+        .mobile-screen {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 20px;
+            width: 320px; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the mobile screen horizontally */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+        }
+
+        /* Add rounded corners to list container */
+        .rounded-list {
+            background-color: #f0f0f0;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+
+        /* Add rounded corners to list items */
+        .rounded-item {
+            padding: 10px;
+            border-top: 1px solid #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s, border-top-left-radius 0.3s, border-top-right-radius 0.3s, border-bottom-left-radius 0.3s, border-bottom-right-radius 0.3s;
+        }
+
+        /* Add a special style for the first item */
+        .rounded-item:first-child {
+            border-top: none;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        /* Add a special style for the last item */
+        .rounded-item:last-child {
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        /* Remove border-bottom from the last item to avoid extra line */
+        .rounded-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Add a class to change background color when clicked */
+        .clicked {
+            background-color: red;
+        }
+    </style>
+    <title>Rounded List Items</title>
+</head>
+<body>
+    <div class="mobile-screen">
+        <ul class="rounded-list">
+            <li class="rounded-item" onclick="toggleBackground(this)">Menu 1</li>
+            <li class="rounded-item" onclick="toggleBackground(this)">Menu 2</li>
+            <li class="rounded-item" onclick="toggleBackground(this)">Menu 3</li>
+            <li class="rounded-item" onclick="toggleBackground(this)">Menu 4</li>
+            <li class="rounded-item" onclick="toggleBackground(this)">Menu 5</li>
+        </ul>
+    </div>
+    <script>
+        function toggleBackground(element) {
+            // Remove clicked class from all menu items
+            const menuItems = document.querySelectorAll('.rounded-item');
+            menuItems.forEach(item => {
+                item.classList.remove('clicked');
+            });
+
+            // Add clicked class to the clicked item
+            element.classList.add('clicked');
+        }
+    </script>
+</body>
+</html>
